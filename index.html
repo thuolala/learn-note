@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>French Notes</title>
+
+    <!-- CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Pixelify Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>Mes Notes De Français</h1>
+    <!-- <div class="searchBar"><i class="fa-solid fa-magnifying-glass" style="color: #F0EBE3;"></i> 
+        <input placeholder="Search..." id="searchInput" class="searchInput"> </div> -->
+
+    <div class="form">
+        <input id="note" placeholder="le/la..." style="margin-right: 10px; width: 200px;">
+        <input id="french" placeholder="Français..." style="margin-right: 10px;" required>
+        <input id="english" placeholder="Anglais..." style="margin-right: 10px;" required>
+        <input id="vietnamese" placeholder="Vietnamien..." style="margin-right: 10px;" required>
+        <button onclick="addNote()" class="addBtn"><i class="fa-solid fa-plus"
+                style="margin-right: 5px;"></i>Ajouter</button>
+    </div>
+    <p class="textCount" id="noteCount"></p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="border-right: #121211 solid 1px;">Notes</th>
+                    <th style="border-right: #121211 solid 1px;">Français <button onclick="toggleSort()"
+                            class="sortBtn">Trier A-Z</button></th>
+                    <th style="border-right: #121211 solid 1px;">Anglais</th>
+                    <th style="border-right: #121211 solid 1px;">Vietnamien</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="noteTable">
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p class="footer-text">Copyright @2025 | By A.T.</p>
+    </footer>
+
+</body>
+
+</html>
