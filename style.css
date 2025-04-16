@@ -87,6 +87,7 @@ td {
     word-wrap: break-word;
     text-align: left;
     color: #F0EBE3;
+    cursor: pointer;
 }
 
 thead th:nth-child(2),

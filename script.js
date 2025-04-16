@@ -14,8 +14,18 @@ function renderNotes() {
             const cell = document.createElement("td");
             cell.textContent = note[lang];
 
-            // Make cell editable on click
-            cell.onclick = () => {
+            // 🔊 Read aloud on single click (not edit)
+            cell.addEventListener("click", (e) => {
+                if (e.detail === 1) {
+                    const text = note[lang];
+                    if (lang === "french") speakFr(text);
+                    else if (lang === "english") speakEng(text);
+                    else if (lang === "vietnamese") speakVI(text);
+                }
+            });
+
+            // 📝 Edit on double-click
+            cell.addEventListener("dblclick", () => {
                 const input = document.createElement("input");
                 input.value = note[lang];
                 input.style.width = "99%";
@@ -24,7 +34,6 @@ function renderNotes() {
                 input.style.padding = "0px";
                 input.style.borderRadius = "0";
 
-                // Save on blur or Enter
                 const save = () => {
                     note[lang] = input.value.trim();
                     localStorage.setItem("notes", JSON.stringify(notes));
@@ -39,7 +48,7 @@ function renderNotes() {
                 cell.innerHTML = "";
                 cell.appendChild(input);
                 input.focus();
-            };
+            });
 
             row.appendChild(cell);
         });
@@ -131,6 +140,24 @@ function filterNotes() {
     });
 
     renderNotes(filteredNotes);
+}
+
+function speakFr(text) {
+    const source = `https://translate.google.com/translate_tts?tl=fr-FR&q=${encodeURIComponent(text)}&client=tw-ob`;
+    const audio = new Audio(source);
+    audio.play();
+}
+
+function speakEng(text) {
+    const source = `https://translate.google.com/translate_tts?tl=en-US&q=${encodeURIComponent(text)}&client=tw-ob`;
+    const audio = new Audio(source);
+    audio.play();
+}
+
+function speakVI(text) {
+    const source = `https://translate.google.com/translate_tts?tl=vi-VN&q=${encodeURIComponent(text)}&client=tw-ob`;
+    const audio = new Audio(source);
+    audio.play();
 }
 
 window.onload = renderNotes;
