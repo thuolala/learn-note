@@ -146,12 +146,20 @@ button {
     color: #F0EBE3;
 }
 
-.footer-text {
+footer{
     margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    bottom: 0;
+    line-height: 0.5;
+}
+
+.footer-text {
     text-align: center;
     color: #8f8d8b;
 }
 
 .footer-text:hover {
-    color: #F0EBE3;
+    color: white;
 }
